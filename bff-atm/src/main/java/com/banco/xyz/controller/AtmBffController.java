@@ -6,7 +6,6 @@ import com.banco.xyz.dto.AtmSaldoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/atm")
@@ -22,19 +21,14 @@ public class AtmBffController {
         kafkaTemplate.send("atm-auditoria", "Consulta de saldo realizada en ATM para la cuenta: " + cuenta);
 
         // Lógica normal
-        AtmSaldoDto response = new AtmSaldoDto();
-        response.setNumeroCuenta(cuenta);
-        response.setSaldoDisponible(new BigDecimal("50000.00"));
-        response.setMoneda("CLP");
-        response.setMensajePantalla("Opere con precaución.");
+        AtmSaldoDto response = new AtmSaldoDto(cuenta, 50000.00);
         return ResponseEntity.ok(response);
     }
 
     // Método de Tolerancia a Fallos (Resilience4j)
     public ResponseEntity<AtmSaldoDto> saldoFallback(String cuenta, Throwable t) {
-        AtmSaldoDto fallbackResponse = new AtmSaldoDto();
-        fallbackResponse.setNumeroCuenta(cuenta);
-        fallbackResponse.setMensajePantalla("Servicio temporalmente no disponible (Circuit Breaker Activo). Intente más tarde.");
+        // En caso de fallo (circuito abierto), devolvemos saldo -1.0 para indicar indisponibilidad
+        AtmSaldoDto fallbackResponse = new AtmSaldoDto(cuenta, -1.0);
         return ResponseEntity.status(503).body(fallbackResponse);
     }
 }

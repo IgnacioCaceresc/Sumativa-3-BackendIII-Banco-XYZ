@@ -16,7 +16,12 @@ public class AtmBffController {
 
     @GetMapping("/saldo/{cuenta}")
     @CircuitBreaker(name = "coreService", fallbackMethod = "saldoFallback")
-    public ResponseEntity<AtmSaldoDto> getSaldoAtm(@PathVariable String cuenta) {
+    public ResponseEntity<?> getSaldoAtm(@PathVariable String cuenta) {
+        // Simulador de caida del servicio Core para probar Resilience4j
+        if ("CTA-ERROR".equals(cuenta)) {
+            throw new RuntimeException("Simulacion de fallo de conexion con el Core bancario");
+        }
+
         // Enviar evento asÃ­ncrono a Kafka cada vez que se consulta en el ATM
         jmsTemplate.convertAndSend("atm-auditoria", "Consulta de saldo realizada en ATM para la cuenta: " + cuenta);
 
@@ -26,10 +31,9 @@ public class AtmBffController {
     }
 
     // MÃ©todo de Tolerancia a Fallos (Resilience4j)
-    public ResponseEntity<AtmSaldoDto> saldoFallback(String cuenta, Throwable t) {
-        // En caso de fallo (circuito abierto), devolvemos saldo -1.0 para indicar indisponibilidad
-        AtmSaldoDto fallbackResponse = new AtmSaldoDto(cuenta, -1.0);
-        return ResponseEntity.status(503).body(fallbackResponse);
+    public ResponseEntity<?> saldoFallback(String cuenta, Throwable t) {
+        // En caso de fallo (circuito abierto), devolvemos el mensaje solicitado
+        return ResponseEntity.status(503).body("No se puede realizar la accion, por favor intente mas tarde");
     }
 }
 

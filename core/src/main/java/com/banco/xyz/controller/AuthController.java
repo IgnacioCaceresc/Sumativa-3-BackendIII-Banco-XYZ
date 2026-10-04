@@ -27,9 +27,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
-        
+
         Usuario usuario = usuarioRepository.findById(loginRequest.getUsername()).orElse(null);
-        
+
         if (usuario == null || !passwordEncoder.matches(loginRequest.getPassword(), usuario.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
         }

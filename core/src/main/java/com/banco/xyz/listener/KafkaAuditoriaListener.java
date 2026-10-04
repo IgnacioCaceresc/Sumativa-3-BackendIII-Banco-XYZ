@@ -1,4 +1,4 @@
-﻿package com.banco.xyz.listener;
+package com.banco.xyz.listener;
 
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;

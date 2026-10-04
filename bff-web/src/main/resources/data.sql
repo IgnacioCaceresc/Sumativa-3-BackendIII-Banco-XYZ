@@ -1,4 +1,4 @@
-﻿INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-001', '2023-01-01', 1500.0, 'DEPOSITO', false);
+INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-001', '2023-01-01', 1500.0, 'DEPOSITO', false);
 INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-002', '2023-01-02', 500.0, 'RETIRO', false);
 INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-003', '2023-01-03', -100.0, 'RETIRO', true);
 

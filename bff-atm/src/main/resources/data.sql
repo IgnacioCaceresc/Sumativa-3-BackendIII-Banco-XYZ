@@ -8,8 +8,8 @@ INSERT INTO intereses_mensuales (cuenta_id, nombre, saldo, edad, tipo, saldo_fin
 INSERT INTO transacciones_anuales (cuenta_id, fecha, transaccion, monto, descripcion) VALUES ('CTA-1001', '2023-01-05', 'DEPOSITO', 1000.0, 'Sueldo');
 INSERT INTO transacciones_anuales (cuenta_id, fecha, transaccion, monto, descripcion) VALUES ('CTA-1001', '2023-01-10', 'RETIRO', 200.0, 'Cajero');
 -- BCrypt password for 'password' is $2a10
-INSERT INTO usuarios (username, password, role) VALUES ('userweb', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_WEB');
-INSERT INTO usuarios (username, password, role) VALUES ('usermobile', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_MOBILE');
-INSERT INTO usuarios (username, password, role) VALUES ('useratm', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_ATM');
+INSERT INTO usuarios (username, password, role) VALUES ('userweb', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HCGKKsyVZwJ1sP4Rk1eIq', 'ROLE_WEB');
+INSERT INTO usuarios (username, password, role) VALUES ('usermobile', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HCGKKsyVZwJ1sP4Rk1eIq', 'ROLE_MOBILE');
+INSERT INTO usuarios (username, password, role) VALUES ('useratm', '$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HCGKKsyVZwJ1sP4Rk1eIq', 'ROLE_ATM');
 
 

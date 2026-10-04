@@ -1,4 +1,4 @@
-INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-001', '2023-01-01', 1500.0, 'DEPOSITO', false);
+﻿INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-001', '2023-01-01', 1500.0, 'DEPOSITO', false);
 INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-002', '2023-01-02', 500.0, 'RETIRO', false);
 INSERT INTO resumen_transacciones (id, fecha, monto, tipo, es_anomalia) VALUES ('TRX-003', '2023-01-03', -100.0, 'RETIRO', true);
 
@@ -11,3 +11,4 @@ INSERT INTO transacciones_anuales (cuenta_id, fecha, transaccion, monto, descrip
 INSERT INTO usuarios (username, password, role) VALUES ('userweb', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_WEB');
 INSERT INTO usuarios (username, password, role) VALUES ('usermobile', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_MOBILE');
 INSERT INTO usuarios (username, password, role) VALUES ('useratm', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_ATM');
+

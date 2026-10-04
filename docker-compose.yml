@@ -43,7 +43,7 @@ services:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     depends_on:
       - kafka
-      - keycloak
+      
 
   bff-mobile:
     build: 
@@ -55,7 +55,7 @@ services:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     depends_on:
       - kafka
-      - keycloak
+      
 
   bff-atm:
     build: 
@@ -67,7 +67,8 @@ services:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     depends_on:
       - kafka
-      - keycloak
+      
+
 
 
 

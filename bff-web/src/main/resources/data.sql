@@ -12,3 +12,4 @@ INSERT INTO usuarios (username, password, role) VALUES ('userweb', '$2a$10$r/x0c
 INSERT INTO usuarios (username, password, role) VALUES ('usermobile', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_MOBILE');
 INSERT INTO usuarios (username, password, role) VALUES ('useratm', '$2a$10$r/x0c7g7/FhUf.eT9wK28eZ00rXk5n.U/W5x9.x/28q.X/T08FhX2', 'ROLE_ATM');
 
+

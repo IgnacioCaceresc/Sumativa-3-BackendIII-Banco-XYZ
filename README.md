@@ -27,7 +27,7 @@ El proyecto está dividido en varios módulos que interactúan entre sí:
 Para garantizar la estabilidad del proyecto bajo entornos limitados en recursos (como GitHub Codespaces) y asegurar el cumplimiento de la rúbrica, se tomaron las siguientes decisiones de ingeniería Senior:
 
 1. **Mensajería JMS vs Kafka:**
-   Se reemplazó Apache Kafka por **ActiveMQ (JMS)** ejecutándose en modo "In-Memory". Esto soluciona los problemas de agotamiento de memoria RAM y fallos de resolución DNS en Codespaces, cumpliendo al 100% con el requisito de "Mensajería Asíncrona (Kafka o JMS)" sin requerir un contenedor pesado. Se configuró un `@Bean` especializado (`JmsConfig.java`) para forzar a Spring Boot 3 a utilizar el broker integrado, superando la limitación nativa del framework.
+   Se reemplazó Apache Kafka por **ActiveMQ (JMS)** ejecutándose en modo "In-Memory". Esto soluciona los problemas de agotamiento de memoria RAM y fallos de resolución DNS en Codespaces (ya que en mi ordenador no he podido hacer funcionar Docker Desktop), cumpliendo al 100% con el requisito de "Mensajería Asíncrona (Kafka o JMS)" sin requerir un contenedor pesado. Se configuró un `@Bean` especializado (`JmsConfig.java`) para forzar a Spring Boot 3 a utilizar el broker integrado, superando la limitación nativa del framework.
 
 2. **Seguridad Robusta (Bypass Evitado):**
    Se mantuvo el estándar de seguridad intacto. La validación de contraseñas de Spring Security exige que los hashes en base de datos (`data.sql`) sean matemáticamente válidos. Se generó y actualizó un hash BCrypt verificado (`$2a$10$BzZ3...`) para garantizar que la contraseña `password` pase el flujo de validación oficial sin requerir atajos de código (hacks).

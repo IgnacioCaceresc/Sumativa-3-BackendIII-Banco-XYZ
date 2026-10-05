@@ -8,9 +8,10 @@ public class KafkaAuditoriaListener {
 
     @JmsListener(destination = "atm-auditoria")
     public void listen(String message) {
-        System.out.println("========== EVENTO KAFKA RECIBIDO ==========");
-        System.out.println("Mensaje: " + message);
-        System.out.println("===========================================");
+        System.out.println("\n=======================================================");
+        System.out.println(" \uD83DFE2 EVENTO JMS RECIBIDO DE FORMA ASINCRONA");
+        System.out.println(" \uD83DDDD DETALLE: " + message);
+        System.out.println("=======================================================\n");
     }
 }
 
